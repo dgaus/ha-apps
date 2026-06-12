@@ -1,8 +1,10 @@
-# slskd Home Assistant Add-on
+# slskd Home Assistant Add-ons
 
 Run [slskd](https://github.com/slskd/slskd) — a modern web-based client for the
 [Soulseek](https://www.slsknet.org/) file sharing network — as a Home Assistant add-on,
 with ingress (UI in the sidebar) and downloads/shares in your `/media` folder.
+Pair it with [Soularr](https://github.com/mrusse/soularr) to automatically download
+your Lidarr wanted list through Soulseek.
 
 ## Installation
 
@@ -23,9 +25,11 @@ Configuration tab, and start it. See the add-on's Documentation tab for details
 | Add-on | Description |
 |--------|-------------|
 | [slskd](./slskd) | Client-server application for the Soulseek file sharing network |
+| [Soularr](./soularr) | Connects Lidarr with Soulseek — downloads wanted albums via slskd |
 
 ## Credits
 
 slskd itself is developed by the [slskd project](https://github.com/slskd/slskd)
-(AGPL-3.0); this repository only packages the official Docker image as a
-Home Assistant add-on. The icon is the slskd project's logo.
+(AGPL-3.0) and Soularr by [mrusse](https://github.com/mrusse/soularr) (GPL-3.0);
+this repository only packages the official Docker images as Home Assistant
+add-ons. The icons are the respective projects' logos.

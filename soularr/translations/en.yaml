@@ -1,0 +1,27 @@
+configuration:
+  lidarr_url:
+    name: Lidarr URL
+    description: Base URL of your Lidarr instance, e.g. http://<lidarr-hostname>:8686. For a Lidarr add-on, the hostname is shown on its info page.
+  lidarr_api_key:
+    name: Lidarr API key
+    description: Found in Lidarr under Settings > General > Security.
+  slskd_url:
+    name: slskd URL
+    description: Leave on "auto" to find the slskd add-on from this repository automatically, or set e.g. http://<slskd-hostname>:5030.
+  slskd_api_key:
+    name: slskd API key
+    description: Only needed if slskd authentication is enabled; the default placeholder works with the slskd add-on's default no-auth setup.
+  download_dir:
+    name: Download directory
+    description: slskd's download directory as this add-on sees it. Must match the slskd add-on's download directory option.
+  lidarr_download_dir:
+    name: Lidarr download directory
+    description: Optional. The same download directory as Lidarr sees it, if Lidarr mounts it at a different path. Defaults to the download directory.
+  interval:
+    name: Check interval (seconds)
+    description: How often Soularr checks Lidarr for wanted albums. Default 300.
+  web_ui:
+    name: Web UI
+    description: Enable Soularr's built-in web UI (config editor and log viewer). It has NO authentication — also map port 8265 in Network, and only on a trusted network.
+network:
+  8265/tcp: Soularr web UI (no authentication — only map on a trusted network)

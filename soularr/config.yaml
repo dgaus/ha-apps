@@ -1,0 +1,37 @@
+name: Soularr
+version: "1.2.2"
+slug: soularr
+description: Connects Lidarr with Soulseek — downloads wanted albums via slskd
+url: https://github.com/mrusse/soularr
+arch:
+  - amd64
+  - aarch64
+init: false
+hassio_api: true
+webui: http://[HOST]:[PORT:8265]
+ports:
+  8265/tcp: null
+ports_description:
+  8265/tcp: Soularr web UI (optional — has NO authentication, only map on a trusted network)
+map:
+  - type: media
+    read_only: false
+  - type: addon_config
+    read_only: false
+options:
+  lidarr_url: ""
+  lidarr_api_key: ""
+  slskd_url: auto
+  slskd_api_key: unused-with-no-auth
+  download_dir: /media/slskd/downloads
+  interval: 300
+  web_ui: false
+schema:
+  lidarr_url: str
+  lidarr_api_key: password
+  slskd_url: str
+  slskd_api_key: password
+  download_dir: str
+  lidarr_download_dir: str?
+  interval: int
+  web_ui: bool
