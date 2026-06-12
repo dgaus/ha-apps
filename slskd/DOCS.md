@@ -48,7 +48,14 @@ If you map host port **5030** in the Network section for direct/API access:
 
 ## Advanced configuration
 
-Anything not covered by the add-on options can be set in `/data/slskd/slskd.yml`
-(created on first start), which you can edit via the Samba or File editor add-ons —
-see the [slskd configuration docs](https://github.com/slskd/slskd/blob/master/docs/config.md).
-Add-on options take precedence because they are passed as environment variables.
+Anything not covered by the add-on options (upload/download slots, speed limits,
+user groups, filters, …) can be edited directly in slskd's own configuration file
+from the web UI: **System → Options → Edit** (enabled by the add-on's
+*Remote configuration* option, on by default). See the
+[slskd configuration docs](https://github.com/slskd/slskd/blob/master/docs/config.md)
+for the full reference. The file lives at `/data/slskd/slskd.yml` inside the add-on.
+
+Note: settings managed by this add-on (Soulseek credentials, shared/download
+directories, listen port, web UI auth) are passed as environment variables, which
+**override** the YAML — change those in the add-on's Configuration tab, not in
+slskd.yml.

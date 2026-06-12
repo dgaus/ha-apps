@@ -1,5 +1,5 @@
 name: slskd
-version: "0.25.1"
+version: "0.25.1.1"
 slug: slskd
 description: A modern client-server application for the Soulseek file sharing network
 url: https://github.com/slskd/slskd
@@ -28,6 +28,7 @@ options:
     - /media/music
   download_dir: /media/slskd/downloads
   listen_port: 50300
+  remote_configuration: true
 schema:
   soulseek_username: str
   soulseek_password: password
@@ -36,6 +37,7 @@ schema:
   download_dir: str
   incomplete_dir: str?
   listen_port: port
+  remote_configuration: bool
   web_username: str?
   web_password: password?
   debug_logging: bool?

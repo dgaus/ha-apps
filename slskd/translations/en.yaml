@@ -23,6 +23,9 @@ configuration:
   web_password:
     name: Web UI password
     description: Optional. Required together with the web UI username.
+  remote_configuration:
+    name: Remote configuration
+    description: Allow editing slskd's full configuration (slskd.yml) from the web UI under System > Options. Options managed by this add-on still take precedence.
   debug_logging:
     name: Debug logging
     description: Run slskd in debug mode with verbose log output.

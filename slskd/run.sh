@@ -42,6 +42,12 @@ if [ "$(opt '.debug_logging')" = "true" ]; then
     export SLSKD_DEBUG=true
 fi
 
+# Allow editing slskd.yml from the web UI (System > Options). Options set by
+# this add-on via environment variables still take precedence over the YAML.
+if [ "$(opt '.remote_configuration')" = "true" ]; then
+    export SLSKD_REMOTE_CONFIGURATION=true
+fi
+
 # Ingress: slskd is served under Home Assistant's dynamic ingress path, which
 # it must know about to generate correct URLs. Ask the Supervisor for it.
 if [ -n "${SUPERVISOR_TOKEN:-}" ]; then
