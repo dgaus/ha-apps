@@ -46,8 +46,10 @@ if not lidarr_url or not lidarr_api_key:
 
 slskd_url = opts.get("slskd_url") or "auto"
 if slskd_url == "auto":
-    # Discover the slskd app installed from this repository via the
-    # Supervisor API; apps are reachable at their slug with '_' -> '-'.
+    # Both apps ship from the same repository, so they share the slug prefix
+    # the Supervisor derives from the repo URL: this app's own slug (e.g.
+    # 39bd2704_soularr) maps to slskd's (39bd2704_slskd). Reading our own info
+    # only needs the default Supervisor role; listing all add-ons would not.
     import os
 
     token = os.environ.get("SUPERVISOR_TOKEN")
@@ -57,21 +59,27 @@ if slskd_url == "auto":
             "Set slskd_url explicitly, e.g. http://<slskd-hostname>:5030."
         )
     req = urllib.request.Request(
-        "http://supervisor/addons", headers={"Authorization": f"Bearer {token}"}
+        "http://supervisor/addons/self/info",
+        headers={"Authorization": f"Bearer {token}"},
     )
     try:
         with urllib.request.urlopen(req, timeout=10) as resp:
-            addons = json.load(resp)["data"]["addons"]
+            own_slug = json.load(resp)["data"]["slug"]
     except Exception as e:
         fail(f"could not query the Supervisor API to locate slskd: {e}")
-    slugs = [a["slug"] for a in addons if a["slug"].endswith("_slskd")]
-    if not slugs:
-        fail(
-            "no installed slskd app found. Install it from this repository, "
-            "or set slskd_url explicitly."
+    slskd_slug = own_slug.rsplit("_", 1)[0] + "_slskd"
+    slskd_url = f"http://{slskd_slug.replace('_', '-')}:5030"
+    print(f"Derived slskd app URL: {slskd_url}")
+    try:
+        urllib.request.urlopen(f"{slskd_url}/api/v0/application", timeout=10)
+    except Exception as e:
+        print(
+            f"WARNING: slskd is not (yet) reachable at {slskd_url} ({e}). "
+            "Continuing; Soularr will retry every cycle. If this persists, "
+            "check that the slskd app from this repository is installed and "
+            "running, or set slskd_url explicitly.",
+            file=sys.stderr,
         )
-    slskd_url = f"http://{slugs[0].replace('_', '-')}:5030"
-    print(f"Discovered slskd app at {slskd_url}")
 
 download_dir = opts.get("download_dir") or "/media/slskd/downloads"
 lidarr_download_dir = opts.get("lidarr_download_dir") or download_dir
