@@ -90,6 +90,21 @@ for section in ("Lidarr", "Slskd"):
     if not config.has_section(section):
         config.add_section(section)
 
+# One-time cleanup: configs seeded by app versions <= 1.2.2.1 carried
+# upstream's placeholder examples as live settings (ignored_users in
+# particular rejects real Soulseek users named e.g. Fred or Bob). Blank
+# them only if still exactly the upstream placeholder.
+PLACEHOLDERS = {
+    "ignored_users": "User1,User2,Fred,Bob",
+    "title_blacklist": "BlacklistWord1,blacklistword2",
+    "search_blacklist": "WordToStripFromSearch1,WordToStripFromSearch2",
+}
+if config.has_section("Search Settings"):
+    for key, placeholder in PLACEHOLDERS.items():
+        if config.get("Search Settings", key, fallback=None) == placeholder:
+            config["Search Settings"][key] = ""
+            print(f"Cleared upstream placeholder value of '{key}'")
+
 config["Lidarr"]["host_url"] = lidarr_url
 config["Lidarr"]["api_key"] = lidarr_api_key
 config["Lidarr"]["download_dir"] = lidarr_download_dir

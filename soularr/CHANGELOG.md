@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.2.2
+
+- Don't ship upstream's placeholder examples (`ignored_users = User1,User2,Fred,Bob`,
+  `title_blacklist`, `search_blacklist`) as live settings in the seeded
+  config.ini — real Soulseek users named e.g. "Fred" were being ignored.
+  Existing configs are cleaned up on start if the values are still exactly
+  the placeholders; edited values are left alone.
+
 ## 1.2.2.1
 
 - Fix slskd auto-discovery failing with `HTTP Error 403: Forbidden`: derive the

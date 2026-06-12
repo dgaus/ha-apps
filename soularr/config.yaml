@@ -1,5 +1,5 @@
 name: Soularr
-version: "1.2.2.1"
+version: "1.2.2.2"
 slug: soularr
 description: Connects Lidarr with Soulseek — downloads wanted albums via slskd
 url: https://github.com/mrusse/soularr

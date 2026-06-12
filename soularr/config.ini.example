@@ -28,12 +28,12 @@ minimum_peer_upload_speed = 0
 minimum_filename_match_ratio = 0.8
 minimum_search_interval = 5
 allowed_filetypes = flac 24/192,flac 16/44.1,flac,mp3 320,mp3
-ignored_users = User1,User2,Fred,Bob
+ignored_users =
 album_prepend_artist = False
 search_type = incrementing_page
 number_of_albums_to_grab = 10
-title_blacklist = BlacklistWord1,blacklistword2
-search_blacklist = WordToStripFromSearch1,WordToStripFromSearch2
+title_blacklist =
+search_blacklist =
 search_source = missing
 failed_import_denylist = True
 
