@@ -1,0 +1,32 @@
+name: SoulSync
+version: "2.7.2"
+slug: soulsync
+description: Spotify/Plex/Jellyfin music discovery that downloads via slskd and other sources
+url: https://github.com/Nezreka/SoulSync
+arch:
+  - amd64
+  - aarch64
+init: false
+hassio_api: true
+webui: http://[HOST]:[PORT:8008]
+ports:
+  8008/tcp: 8008
+  8888/tcp: 8888
+  8889/tcp: 8889
+ports_description:
+  8008/tcp: Web UI (has NO authentication — only map on a trusted network)
+  8888/tcp: Spotify OAuth callback (only needed to log in to Spotify)
+  8889/tcp: Tidal OAuth callback (only needed to log in to Tidal)
+map:
+  - type: media
+    read_only: false
+  - type: addon_config
+    read_only: false
+options:
+  puid: 0
+  pgid: 0
+  tz: ""
+schema:
+  puid: int
+  pgid: int
+  tz: str?

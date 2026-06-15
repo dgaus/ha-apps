@@ -27,10 +27,12 @@ Configuration tab, and start it. See each app's Documentation tab for details
 |-----|-------------|
 | [slskd](./slskd) | Client-server application for the Soulseek file sharing network |
 | [Soularr](./soularr) | Connects Lidarr with Soulseek — downloads wanted albums via slskd |
+| [SoulSync](./soulsync) | Spotify/Plex/Jellyfin music discovery — downloads via slskd and other sources |
 
 ## Credits
 
 slskd itself is developed by the [slskd project](https://github.com/slskd/slskd)
-(AGPL-3.0) and Soularr by [mrusse](https://github.com/mrusse/soularr) (GPL-3.0);
-this repository only packages the official Docker images as Home Assistant apps.
-The icons are the respective projects' logos.
+(AGPL-3.0), Soularr by [mrusse](https://github.com/mrusse/soularr) (GPL-3.0), and
+SoulSync by [Nezreka](https://github.com/Nezreka/SoulSync); this repository only
+packages the official Docker images as Home Assistant apps. The icons are the
+respective projects' logos.

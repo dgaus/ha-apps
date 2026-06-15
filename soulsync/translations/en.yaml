@@ -1,0 +1,14 @@
+configuration:
+  puid:
+    name: User ID (PUID)
+    description: UID SoulSync runs as. Default 0 (root) so it can write to the Home Assistant /media folder. Change only if you know you need to.
+  pgid:
+    name: Group ID (PGID)
+    description: GID SoulSync runs as. Default 0 (root). Change only if you know you need to.
+  tz:
+    name: Timezone
+    description: Optional TZ database name (e.g. Europe/London) used for log timestamps and scheduling.
+network:
+  8008/tcp: Web UI (no authentication — only map on a trusted network)
+  8888/tcp: Spotify OAuth callback (only needed to log in to Spotify)
+  8889/tcp: Tidal OAuth callback (only needed to log in to Tidal)
