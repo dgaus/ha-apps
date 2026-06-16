@@ -1,0 +1,24 @@
+name: Lidarr (nightly + plugins)
+version: "1.0.0"
+slug: lidarr-nightly
+description: Lidarr on the nightly branch with plugin support (e.g. the slskd Soulseek plugin)
+url: https://wiki.servarr.com/lidarr/plugins
+arch:
+  - amd64
+  - aarch64
+init: false
+webui: http://[HOST]:[PORT:8686]
+panel_icon: mdi:music
+ports:
+  8686/tcp: 8686
+ports_description:
+  8686/tcp: Lidarr web UI / API
+environment:
+  PUID: "0"
+  PGID: "0"
+  UMASK: "002"
+map:
+  - type: addon_config
+    read_only: false
+  - type: media
+    read_only: false

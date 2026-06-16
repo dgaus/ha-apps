@@ -1,0 +1,2 @@
+network:
+  8686/tcp: Lidarr web UI / API. Open http://<home-assistant>:8686 and sign in with the Lidarr login you create on first run.
