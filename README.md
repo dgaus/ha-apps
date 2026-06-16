@@ -1,4 +1,4 @@
-# Home Assistant Apps: slskd & Soularr
+# Home Assistant Apps: slskd, Soularr, SoulSync & Soulbeet
 
 Run [slskd](https://github.com/slskd/slskd) — a modern web-based client for the
 [Soulseek](https://www.slsknet.org/) file sharing network — as a Home Assistant app
@@ -28,11 +28,13 @@ Configuration tab, and start it. See each app's Documentation tab for details
 | [slskd](./slskd) | Client-server application for the Soulseek file sharing network |
 | [Soularr](./soularr) | Connects Lidarr with Soulseek — downloads wanted albums via slskd |
 | [SoulSync](./soulsync) | Spotify/Plex/Jellyfin music discovery — downloads via slskd and other sources |
+| [Soulbeet](./soulbeet) | Soulseek → beets → Navidrome downloader, library manager and discovery engine |
 
 ## Credits
 
 slskd itself is developed by the [slskd project](https://github.com/slskd/slskd)
-(AGPL-3.0), Soularr by [mrusse](https://github.com/mrusse/soularr) (GPL-3.0), and
-SoulSync by [Nezreka](https://github.com/Nezreka/SoulSync); this repository only
-packages the official Docker images as Home Assistant apps. The icons are the
-respective projects' logos.
+(AGPL-3.0), Soularr by [mrusse](https://github.com/mrusse/soularr) (GPL-3.0),
+SoulSync by [Nezreka](https://github.com/Nezreka/SoulSync), and Soulbeet by
+[terry90](https://github.com/terry90/soulbeet); this repository only packages the
+official Docker images as Home Assistant apps. The icons are the respective
+projects' logos.

@@ -1,0 +1,30 @@
+name: Soulbeet
+version: "0.6.0"
+slug: soulbeet
+description: Soulseek -> beets -> Navidrome music downloader, library manager and discovery engine
+url: https://github.com/terry90/soulbeet
+arch:
+  - amd64
+  - aarch64
+init: false
+hassio_api: true
+webui: http://[HOST]:[PORT:9765]
+ports:
+  9765/tcp: 9765
+ports_description:
+  9765/tcp: Web UI (log in with your Navidrome credentials)
+map:
+  - type: media
+    read_only: false
+  - type: addon_config
+    read_only: false
+options:
+  navidrome_url: ""
+  download_dir: /media/slskd/downloads
+  album_mode: false
+  tz: ""
+schema:
+  navidrome_url: str
+  download_dir: str
+  album_mode: bool
+  tz: str?

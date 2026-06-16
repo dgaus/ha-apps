@@ -1,0 +1,15 @@
+configuration:
+  navidrome_url:
+    name: Navidrome URL
+    description: Your Navidrome server, used both for streaming the library and for logging in to Soulbeet. Use http://<home-assistant-ip>:4533 (or your Navidrome app's internal address). Required.
+  download_dir:
+    name: Download directory
+    description: Folder where slskd saves completed downloads, so Soulbeet can import them. Keep this in sync with the slskd app (default /media/slskd/downloads).
+  album_mode:
+    name: Album import mode
+    description: Import downloads as albums (group by folder) instead of individual tracks. Leave off unless you specifically want album tags; obscure releases may need a custom beets config to import in this mode.
+  tz:
+    name: Timezone
+    description: Optional TZ database name (e.g. Europe/London) used for log timestamps and scheduling.
+network:
+  9765/tcp: Web UI (log in with your Navidrome credentials)
