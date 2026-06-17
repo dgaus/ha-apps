@@ -1,7 +1,7 @@
 name: Lidarr (nightly + plugins)
-version: "1.0.0"
+version: "1.0.1"
 slug: lidarr-nightly
-description: Lidarr on the nightly branch with plugin support (e.g. the slskd Soulseek plugin)
+description: Lidarr on the nightly branch, with plugin support enabled
 url: https://wiki.servarr.com/lidarr/plugins
 arch:
   - amd64
