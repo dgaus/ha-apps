@@ -1,7 +1,8 @@
+# Pin the base directly. This app needs Node, and Home Assistant's default base
+# image doesn't ship it; node:24-alpine is multi-arch (amd64/arm64/armv7).
+# ARG BUILD_FROM is declared only to consume the build-arg HA passes.
 ARG BUILD_FROM
-FROM $BUILD_FROM
-
-# Base image (build.yaml -> node:*-alpine) already ships node + npm.
+FROM node:24-alpine
 
 # Build application
 WORKDIR /app
