@@ -1,11 +1,7 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Install dependencies
-RUN \
-    apk add --no-cache \
-    nodejs \
-    npm
+# Base image (build.yaml -> node:*-alpine) already ships node + npm.
 
 # Build application
 WORKDIR /app
