@@ -1,4 +1,4 @@
-# Home Assistant Apps: slskd, Soularr, SoulSync & Soulbeet
+# Diego's Home Assistant Apps
 
 Run [slskd](https://github.com/slskd/slskd) — a modern web-based client for the
 [Soulseek](https://www.slsknet.org/) file sharing network — as a Home Assistant app
@@ -29,6 +29,7 @@ Configuration tab, and start it. See each app's Documentation tab for details
 | [Soularr](./soularr) | Connects Lidarr with Soulseek — downloads wanted albums via slskd |
 | [SoulSync](./soulsync) | Spotify/Plex/Jellyfin music discovery — downloads via slskd and other sources |
 | [Soulbeet](./soulbeet) | Soulseek → beets → Navidrome downloader, library manager and discovery engine |
+| [Lidarr (nightly)](./lidarr-nightly) | Lidarr on the nightly branch with plugin support |
 | [Swim Times](./swim-times) | Track pool occupancy and find the best times to swim |
 
 ## Credits
