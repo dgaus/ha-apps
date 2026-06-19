@@ -29,6 +29,7 @@ Configuration tab, and start it. See each app's Documentation tab for details
 | [Soularr](./soularr) | Connects Lidarr with Soulseek — downloads wanted albums via slskd |
 | [SoulSync](./soulsync) | Spotify/Plex/Jellyfin music discovery — downloads via slskd and other sources |
 | [Soulbeet](./soulbeet) | Soulseek → beets → Navidrome downloader, library manager and discovery engine |
+| [Swim Times](./swim-times) | Track pool occupancy and find the best times to swim |
 
 ## Credits
 

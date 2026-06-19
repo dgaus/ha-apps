@@ -1,0 +1,69 @@
+name: "Swim Times"
+version: "0.1.0"
+slug: "swim_times"
+description: "Track pool occupancy and best times."
+panel_icon: mdi:swim
+url: "https://github.com/dgaus/ha-apps/tree/main/swim-times"
+startup: application
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armv7
+map:
+  - config:rw
+options:
+  week_starts_on: monday
+  schedule:
+    monday:
+      open: "08:00"
+      close: "22:00"
+    tuesday:
+      open: "08:00"
+      close: "22:00"
+    wednesday:
+      open: "08:00"
+      close: "22:00"
+    thursday:
+      open: "08:00"
+      close: "22:00"
+    friday:
+      open: "08:00"
+      close: "22:00"
+    saturday:
+      open: "09:00"
+      close: "20:00"
+    sunday:
+      open: "09:00"
+      close: "17:00"
+  slot_duration_minutes: 30
+schema:
+  week_starts_on: "list(monday|sunday)?"
+  schedule:
+    monday:
+      open: str?
+      close: str?
+    tuesday:
+      open: str?
+      close: str?
+    wednesday:
+      open: str?
+      close: str?
+    thursday:
+      open: str?
+      close: str?
+    friday:
+      open: str?
+      close: str?
+    saturday:
+      open: str?
+      close: str?
+    sunday:
+      open: str?
+      close: str?
+  slot_duration_minutes: int?
+ports:
+  3000/tcp: 3000
+ingress: true
+ingress_port: 3000
+

@@ -1,0 +1,336 @@
+:root {
+  /* Light Theme (Default) */
+  --bg-color: #ffffff;
+  --text-color: #1f2328;
+  --text-muted: #656d76;
+  --accent: #09b47e;
+  --grid-border: #d0d7de;
+  --unavailable: #f6f8fa;
+  --cell-bg: #ffffff;
+  --hover: #eaeef2;
+  --modal-bg: #ffffff;
+  --button-text: #ffffff;
+  --shadow-color: rgba(9, 180, 126, 0.4);
+  --separator: #d0d7de;
+  --success-color: #09b47e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Theme (Original) */
+    --bg-color: #0d1117;
+    --text-color: #e6edf3;
+    --text-muted: #8b949e;
+    --accent: #00ffaa;
+    --grid-border: #30363d;
+    --unavailable: #161b22;
+    --cell-bg: #21262d;
+    --hover: #30363d;
+    --modal-bg: #1c2128;
+    --button-text: #000000;
+    --shadow-color: rgba(0, 255, 170, 0.4);
+    --separator: rgba(255, 255, 255, 0.05);
+  }
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--shadow-color);
+}
+
+#quick-actions {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+button {
+  background: var(--accent);
+  color: var(--button-text);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.data-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+#data-status {
+  margin-top: 0.6rem;
+  min-height: 1.2em;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+#data-status.error {
+  color: #ff3b30;
+  opacity: 1;
+}
+
+/* GRID */
+.schedule-grid {
+  display: grid;
+  /* grid-template-columns is set inline by ui.js to match the number of configured day columns */
+  gap: 1px;
+  background-color: var(--grid-border);
+  border: 1px solid var(--grid-border);
+  overflow-x: auto;
+}
+
+.grid-header {
+  background-color: var(--bg-color);
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.time-label {
+  background-color: var(--bg-color);
+  padding: 5px;
+  text-align: right;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-right: 1px solid var(--grid-border);
+  position: sticky;
+  left: 0;
+  z-index: 5;
+}
+
+.grid-cell {
+  background-color: var(--cell-bg);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: 1px solid transparent;
+}
+
+.grid-cell:hover:not(.unavailable) {
+  background-color: var(--hover);
+  border: 1px solid var(--accent);
+}
+
+.grid-cell.unavailable {
+  background-color: var(--unavailable);
+  background-image: repeating-linear-gradient(45deg,
+      transparent,
+      transparent 10px,
+      rgba(128, 128, 128, 0.05) 10px,
+      rgba(128, 128, 128, 0.05) 20px);
+  cursor: not-allowed;
+}
+
+.grid-cell.empty-data {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  background: var(--modal-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--grid-border);
+  text-align: center;
+  min-width: 300px;
+}
+
+.rating-buttons {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.rating-buttons button {
+  background-color: var(--hover);
+  color: var(--text-color);
+  text-align: left;
+}
+
+.rating-buttons button:hover {
+  background: var(--accent);
+  color: var(--button-text);
+}
+
+.saved-message {
+  color: var(--success-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close-x {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-close-x:hover {
+  color: var(--text-color);
+  transform: none;
+  box-shadow: none;
+}
+
+.history-section {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--grid-border);
+  padding-top: 1rem;
+  text-align: left;
+}
+
+.history-section h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.history-list {
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--separator);
+}
+
+.delete-btn {
+  background: #ff0055 !important;
+  color: white !important;
+  border: none;
+  padding: 2px 8px !important;
+  border-radius: 4px;
+  font-size: 0.7rem !important;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  opacity: 0.8;
+}
+
+/* STATS */
+#stats-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--cell-bg);
+  border: 1px solid var(--grid-border);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-card h3 {
+  margin-top: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin: 10px 0;
+}
+
+.stat-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
